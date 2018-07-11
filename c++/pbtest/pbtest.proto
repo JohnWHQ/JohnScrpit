@@ -1,0 +1,34 @@
+syntax = "proto2";
+
+message gps_data {
+    optional int64 id = 1;
+    optional string terminalId = 2;
+    optional string dataTime = 3;
+    optional double lon = 4;
+    optional double lat = 5;
+    optional float speed = 6;
+    optional int32 altitude = 7;
+    optional int32 locType = 8;
+    optional int32 gpsStatus = 9;
+    optional float direction = 10;
+    optional int32 satellite = 11;
+
+    optional int64 testField1 =12;
+
+    optional LocationXY locXY = 13;
+    required SatelliteType satelliteType = 14;
+    repeated int32 xys = 15;
+
+    enum SatelliteType {
+        DEFAULT = 0;
+        GPS = 1;
+        GLONASS = 2;
+        GALILEO = 3;
+    }
+
+    message LocationXY {
+        optional string x = 1;
+        optional string y = 2;
+    }
+
+}
